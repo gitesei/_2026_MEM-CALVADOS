@@ -9,6 +9,7 @@ The repository contains the code and data to reproduce the analyses in the manus
 - `GHR.ipynb` reproduces Fig. 5 and related SI figures
 - `LAT_Grb2_Sos1.ipynb` reproduces Fig. 6 and related SI figures 
 - `data/` contains the data used in the notebooks
+- `scripts/` contains the scripts and input files used to run the simulations
 
 ### Usage
 
