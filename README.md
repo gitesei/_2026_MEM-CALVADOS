@@ -1,6 +1,6 @@
-## MEM-CALVADOS: A Residue-Level Model for Flexible Membrane Protein
+## MEM-CALVADOS: A Residue-Level Model for Flexible Protein at Membrane Interfaces
 
-The repository contains the code and data to reproduce the analyses in the manuscript _MEM-CALVADOS: A Residue-Level Model for Flexible Membrane Proteins_.
+The repository contains the code and data to reproduce the analyses in the manuscript _MEM-CALVADOS: A Residue-Level Model for Flexible Proteins at Membrane Interfaces_.
 
 ### Layout
 - `lipid_scan.ipynb` reproduces Fig. 2 and related SI figures
