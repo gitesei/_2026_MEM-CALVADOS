@@ -7,3 +7,4 @@ dependencies:
   - scipy=1.15
   - matplotlib
   - statsmodels
+  - seaborn
