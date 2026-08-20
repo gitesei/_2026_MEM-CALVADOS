@@ -1,0 +1,5 @@
+lipid,ratio,temp_K,sim_apl_A^2,sim_dpp_nm,Source
+POPS_POPC,20_80,298,62.87,3.79,https://doi.org/10.1021/acs.jctc.9b00824
+POPS_POPC,50_50,298,62.07,3.83,https://doi.org/10.1021/acs.jctc.9b00824
+DOPS_DOPC,25_75,310,67.00,3.43,https://doi.org/10.1016/j.bbamem.2024.184376
+DOPS_DOPC,50_50,310,65.80,3.86,https://doi.org/10.1016/j.bbamem.2024.184376

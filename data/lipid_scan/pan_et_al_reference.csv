@@ -1,0 +1,5 @@
+lipid,temp_K,exp_apl_nm^2,Source
+POPS,298.15,0.627,https://doi.org/10.1039/c4sm00066h
+POPS,308.15,0.639,https://doi.org/10.1039/c4sm00066h
+POPS,318.15,0.655,https://doi.org/10.1039/c4sm00066h
+POPS,328.15,0.674,https://doi.org/10.1039/c4sm00066h
