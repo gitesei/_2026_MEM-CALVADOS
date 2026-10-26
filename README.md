@@ -6,8 +6,10 @@ The repository contains the code and data to reproduce the analyses in the manus
 - `lipid_scan.ipynb` reproduces Fig. 2 and related SI figures
 - `omega_scan.ipynb` reproduces Fig. 3 and related SI figures
 - `WLXLL.ipynb` reproduces Fig. 4
-- `GHR.ipynb` reproduces Fig. 5 and related SI figures
-- `LAT_Grb2_Sos1.ipynb` reproduces Fig. 6 and related SI figures 
+- `exp_valid.ipynb` reproduces Fig. 5
+- `GHR.ipynb` reproduces Fig. 6 and related SI figures
+- `LAT_Grb2_Sos1.ipynb` reproduces Fig. 7 and related SI figures 
+- `v2_scan.ipynb` reproduces Fig. S8
 - `data/` contains the data used in the notebooks
 - `scripts/` contains the scripts and input files used to run the simulations
 
