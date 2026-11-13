@@ -17,8 +17,8 @@ tmd_sel = "resid 4 to 26"
 
 cwd = os.getcwd()
 N_save = int(5e4)
-N_frames = 2400
-Lx = 30
+N_frames = 300
+Lx = 35
 Ly = Lx
 area_per_lipid = .67
 N_lipids = int(np.ceil(Lx*Ly/area_per_lipid)*2)
@@ -27,13 +27,6 @@ sysname = f'{args.name_1:s}_{args.name_2:s}_Sos1_{args.replica:d}'
 residues_file = f'{cwd}/input/residues.csv'
 
 pH = 7.4
-
-# set charge on pTyr based on input pH
-#pKa_dict = dict(TYP=5.83)
-#df_residues = pd.read_csv(residues_file,index_col='three')
-#for pres in pKa_dict.keys():
-#    df_residues.loc[pres,'q'] = - 1 - 1 / (1 + 10**(pKa_dict[pres]-pH))
-#df_residues.reset_index().set_index('one').to_csv(residues_file)
 
 config = Config(
   # GENERAL
@@ -58,8 +51,7 @@ config = Config(
   runtime = 0, # overwrites 'steps' keyword if > 0
   platform = 'CUDA', # 'CUDA'
   restart = 'checkpoint',
-  frestart = 'restart.chk',
-  verbose = True,
+  frestart = 'restart.chk'
 )
 
 # PATH
@@ -67,13 +59,11 @@ path = f'{cwd}/{sysname}'
 output_path = 'data'
 subprocess.run(f'mkdir -p {path}',shell=True)
 subprocess.run(f'mkdir -p {output_path}',shell=True)
-ref_sel="resname TDO or resname TPO"
-strip_sel="not (resname SEB or resname CHO or resname PHO or resname MID or resname TDO or resname TPO)"
 
 analyses = f"""
-from calvados.analysis import calc_membrane_profiles, calc_com_traj, calc_com_profiles, cmap_chain_pairs
+from calvados.analysis import calc_membrane_profiles, calc_bilayer_prop, calc_com_traj, calc_com_profiles, cmap_chain_pairs
 
-calc_membrane_profiles("{path}","{sysname}","{output_path}","{residues_file}","{tmd_sel}",600,"{ref_sel}","{strip_sel}")
+calc_bilayer_prop(path="{path:s}",sysname="{sysname:s}",output_path="{output_path:s}",residues_file="{residues_file}",start=100)
 chainid_dict = dict({args.name_1}=(0, 15), {args.name_2}=(16, 47), Sos1=(48,79))
 calc_com_traj(path="{path:s}",sysname="{sysname:s}",output_path="{output_path:s}",residues_file="{residues_file:s}",
                   chainid_dict=chainid_dict)

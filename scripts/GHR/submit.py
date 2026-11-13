@@ -7,17 +7,17 @@ from jinja2 import Template
 submission = Template("""#!/bin/bash
 #SBATCH --job-name={{name}}_{{replica}}
 #SBATCH --gres=gpu:1
-#SBATCH -t 24:00:00
+#SBATCH -t 8:00:00
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1
-#SBATCH --mem=16G
+#SBATCH --mem=4G
 #SBATCH -A naiss2026-3-355-gpu
 #SBATCH -p gpu
 #SBATCH -o {{name}}_{{replica}}.out
 #SBATCH -e {{name}}_{{replica}}.err
 
 module load GPU/Miniforge/26.3.2-2-eb
-mamba activate calvados
+mamba activate memcal
 
 python prepare.py --name {{name}} --replica {{replica}}
 

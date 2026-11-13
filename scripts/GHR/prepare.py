@@ -15,7 +15,7 @@ tmd_sel = "resid 265 to 287"
 
 cwd = os.getcwd()
 N_save = int(5e4)
-N_frames = 1010
+N_frames = 1000
 Lx = 30
 Ly = Lx
 area_per_lipid = .63
@@ -41,7 +41,7 @@ config = Config(
   wfreq = N_save, # dcd writing frequency, 1 = 10fs
   logfreq = 100*N_save,
   steps = N_frames*N_save, # number of simulation steps
-  steps_eq = 20*N_save,
+  steps_eq = 30*N_save,
   runtime = 0, # overwrites 'steps' keyword if > 0
   platform = 'CUDA', # 'CUDA'
   restart = 'checkpoint',
@@ -59,7 +59,7 @@ strip_sel="not (resname SEB or resname CHO or resname PHO or resname MID or resn
 
 analyses = f"""
 from calvados.analysis import calc_membrane_profiles, calc_domain_angles, calc_domain_rgs, cmap_selection
-calc_membrane_profiles("{path}","{sysname}","{output_path}","{residues_file}","{tmd_sel}",10,"{ref_sel}","{strip_sel}")
+calc_membrane_profiles("{path}","{sysname}","{output_path}","{residues_file}","{tmd_sel}",0,-1,"{ref_sel}","{strip_sel}")
 angle_sels = dict(TMD="{tmd_sel}", D1="resid 52 to 145", D2="resid 146 to 252")
 calc_domain_angles("{path}","{sysname}","{output_path}",angle_sels,"{residues_file}",0.5)
 rg_sels = dict(ECD="resid 1 to 252", ICD="resid 313 to 639", ICD_GFP="resid 313 to 863", FL="resid 1 to 863")
